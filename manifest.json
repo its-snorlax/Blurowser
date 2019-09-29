@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
+  "name": "Bluroswer",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Keep your privacy in the premises.",
   "permissions": [
     "declarativeContent",
     "activeTab"

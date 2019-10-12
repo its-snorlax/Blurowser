@@ -6,11 +6,40 @@
     "declarativeContent",
     "activeTab"
   ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": [
+        "css/styles.css"
+      ],
+      "js": [
+        "js/script.js"
+      ]
+    }
+  ],
   "background": {
     "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+      "js/background.js"
+    ]
+  },
+  "commands": {
+    "activate-blurowser": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "MacCtrl+B"
+      },
+      "description": "Activate Blur page"
+    },
+    "inactivate-blurowser": {
+      "suggested_key": {
+        "default": "Ctrl+C",
+        "mac": "MacCtrl+C"
+      },
+      "description": "DeActivate Blur page"
+    }
   },
   "page_action": {
     "default_popup": "home.html"

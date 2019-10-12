@@ -1,0 +1,3 @@
+.blur-active {
+    filter: blur(10px);
+}

@@ -1,3 +1,8 @@
 .blur-active {
     filter: blur(10px);
 }
+.element-selector{
+    border-style: dotted;
+    border-width: medium;
+    border-color: black;
+}

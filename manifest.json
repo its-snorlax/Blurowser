@@ -41,8 +41,5 @@
       "description": "DeActivate Blur page"
     }
   },
-  "page_action": {
-    "default_popup": "home.html"
-  },
   "manifest_version": 2
 }

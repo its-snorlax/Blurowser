@@ -8,21 +8,24 @@ function activeBlurowser() {
             currentElement.classList.add("element-selector");
             previousElement = currentElement;
         } else {
-          currentElement.classList.add("element-selector");
+            currentElement.classList.add("element-selector");
             previousElement.classList.remove("element-selector");
             previousElement = currentElement
         }
+        currentElement.addEventListener("click", function () {
+            currentElement.classList.add("blur-active")
+        })
     }
 }
 
 function inactiveBlurowser() {
-  window.onmouseover = onmouseover
+    window.onmouseover = onmouseover
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "activate-blurowser") {
-      activeBlurowser();
+        activeBlurowser();
         return;
     }
-  inactiveBlurowser();
+    inactiveBlurowser();
 });

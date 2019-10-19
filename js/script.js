@@ -1,10 +1,11 @@
 let previousElement = null;
+let currentElement = null;
 let onmouseover = window.onmouseover;
 let state = false;
 
 function activeBlurowser() {
     window.onmouseover = function (e) {
-        const currentElement = e.target;
+        currentElement = e.target;
         if (previousElement === null) {
             currentElement.classList.add("element-selector");
             previousElement = currentElement;
@@ -20,6 +21,7 @@ function activeBlurowser() {
 }
 
 function inactiveBlurowser() {
+    currentElement.classList.remove("element-selector");
     window.onmouseover = onmouseover
 }
 

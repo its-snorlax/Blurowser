@@ -1,5 +1,6 @@
 let previousElement = null;
 let onmouseover = window.onmouseover;
+let state = false;
 
 function activeBlurowser() {
     window.onmouseover = function (e) {
@@ -23,9 +24,14 @@ function inactiveBlurowser() {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === "activate-blurowser") {
-        activeBlurowser();
-        return;
+        if (message.action === "activate-and-deactivate-blurowser") {
+            if (state === false) {
+                state = true;
+                activeBlurowser();
+            } else {
+                state = false;
+                inactiveBlurowser();
+            }
+        }
     }
-    inactiveBlurowser();
-});
+);

@@ -26,19 +26,12 @@
     ]
   },
   "commands": {
-    "activate-blurowser": {
+    "activate-and-deactivate-blurowser": {
       "suggested_key": {
         "default": "Ctrl+B",
         "mac": "MacCtrl+B"
       },
       "description": "Activate Blur page"
-    },
-    "inactivate-blurowser": {
-      "suggested_key": {
-        "default": "Ctrl+C",
-        "mac": "MacCtrl+C"
-      },
-      "description": "DeActivate Blur page"
     }
   },
   "manifest_version": 2

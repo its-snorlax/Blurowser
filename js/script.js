@@ -1,4 +1,3 @@
-let previousElement = null;
 let currentElement = null;
 let originalOnMouseOver;
 let activated = false;
@@ -6,15 +5,12 @@ let activated = false;
 function activeBlurowser() {
     originalOnMouseOver = window.onmouseover;
     window.onmouseover = function (e) {
-        currentElement = e.target;
-        if (previousElement === null) {
-            currentElement.classList.add("element-selector");
-            previousElement = currentElement;
-        } else {
-            currentElement.classList.add("element-selector");
-            previousElement.classList.remove("element-selector");
-            previousElement = currentElement
+        const newElement = e.target;
+        if (currentElement) {
+            currentElement.classList.remove("element-selector");
         }
+        currentElement = newElement;
+        currentElement.classList.add("element-selector");
         currentElement.addEventListener("click", function () {
             currentElement.classList.add("blur-active")
         })

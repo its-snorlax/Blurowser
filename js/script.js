@@ -1,9 +1,10 @@
 let previousElement = null;
 let currentElement = null;
-let onmouseover = window.onmouseover;
-let state = false;
+let originalOnMouseOver;
+let activated = false;
 
 function activeBlurowser() {
+    originalOnMouseOver = window.onmouseover;
     window.onmouseover = function (e) {
         currentElement = e.target;
         if (previousElement === null) {
@@ -22,18 +23,17 @@ function activeBlurowser() {
 
 function inactiveBlurowser() {
     currentElement.classList.remove("element-selector");
-    window.onmouseover = onmouseover
+    window.onmouseover = originalOnMouseOver
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        if (message.action === "activate-and-deactivate-blurowser") {
-            if (state === false) {
-                state = true;
+        if (message.action === "toggle-blurowser") {
+            if (activated === false) {
                 activeBlurowser();
             } else {
-                state = false;
                 inactiveBlurowser();
             }
+            activated = !activated
         }
     }
 );

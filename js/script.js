@@ -8,17 +8,21 @@ function activeBlurowser() {
         const newElement = e.target;
         if (currentElement) {
             currentElement.classList.remove("element-selector");
+            currentElement.removeEventListener("click", blurSelectedArea);
         }
         currentElement = newElement;
         currentElement.classList.add("element-selector");
-        currentElement.addEventListener("click", function () {
-            currentElement.classList.add("blur-active")
-        })
+        currentElement.addEventListener("click", blurSelectedArea)
     }
+}
+
+function blurSelectedArea() {
+    currentElement.classList.add("blur-active")
 }
 
 function inactiveBlurowser() {
     currentElement.classList.remove("element-selector");
+    currentElement.removeEventListener("click", blurSelectedArea);
     window.onmouseover = originalOnMouseOver
 }
 

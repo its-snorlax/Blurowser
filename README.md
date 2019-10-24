@@ -1,6 +1,9 @@
 # Blurowser
+[![BCH compliance](https://bettercodehub.com/edge/badge/juniorjainsahab/Blurowser?branch=master)](https://bettercodehub.com/)
+[![HitCount](http://hits.dwyl.io/juniorjainsahab/Blurowser.svg)](http://hits.dwyl.io/juniorjainsahab/Blurowser)
 
-A browser extension to blur your private content on the webpage while taking screenshots or screen recordings.
+## Introduction
+A browser extension to blur your private content on the web page while taking screenshots or screen recordings.
 
 ## Installation
 
@@ -15,7 +18,7 @@ git clone https://github.com/juniorjainsahab/Blurowser.git
 
 ![picture](/images/readme/afterInstall.jpeg)
  
-## Usage
+## How to use?
 
 - Press `Ctrl + B` to activate Blurowser
 - Start hovering your mouse and select the area where you want to blur the content.

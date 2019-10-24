@@ -12,12 +12,11 @@ Clone the repository from the following command or download zip and extract it i
 ```sh
 git clone https://github.com/juniorjainsahab/Blurowser.git
 ```
-- Open the browser and go to chrome://extensions. On the right top corner, you will find a toggle button to start developer mode.
+- Open the browser and go to `chrome://extensions`. On the right top corner, you will find a toggle button to start developer mode.
 - Click on load unpacked and a dialog will appear to browse the extension go to the director and open the folder which you extracted or cloned.
-- After Installation it will look like following image.
+- After Installation it will look like following image and then restart your browser.
 
 ![picture](/images/readme/afterInstall.jpeg)
- 
 ## How to use?
 
 - Press `Ctrl + B` to activate Blurowser

@@ -3,7 +3,6 @@
   "version": "1.0",
   "description": "Keep your privacy in the premises.",
   "permissions": [
-    "declarativeContent",
     "activeTab"
   ],
   "content_scripts": [
@@ -16,7 +15,9 @@
         "css/styles.css"
       ],
       "js": [
-        "js/script.js"
+        "js/script.js",
+        "js/hover-manager.js",
+        "js/element-manager.js"
       ]
     }
   ],

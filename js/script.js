@@ -1,8 +1,11 @@
 let activated = false;
 let hoverManager = null;
 let elementManager = null;
+let originalOnKeyDown = null
 
 function activeBlurowser() {
+    originalOnKeyDown = window.onkeydown;
+    window.onkeydown = onKeyDown;
     elementManager = new ElementManager();
     hoverManager = new HoverManager();
     hoverManager.register((currentElement, previousElement) => {
@@ -13,7 +16,14 @@ function activeBlurowser() {
 
 function inactiveBlurowser() {
     elementManager.stop();
-    hoverManager.stop()
+    hoverManager.stop();
+    window.onkeydown = originalOnKeyDown;
+}
+
+function onKeyDown(event) {
+    if (event.key === "Escape") {
+        inactiveBlurowser();
+    }
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

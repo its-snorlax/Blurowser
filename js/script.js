@@ -1,29 +1,19 @@
-let currentElement = null;
-let originalOnMouseOver;
 let activated = false;
+let hoverManager = null;
+let elementManager = null;
 
 function activeBlurowser() {
-    originalOnMouseOver = window.onmouseover;
-    window.onmouseover = function (e) {
-        const newElement = e.target;
-        if (currentElement) {
-            currentElement.classList.remove("element-selector");
-            currentElement.removeEventListener("click", blurSelectedArea);
-        }
-        currentElement = newElement;
-        currentElement.classList.add("element-selector");
-        currentElement.addEventListener("click", blurSelectedArea)
-    }
-}
-
-function blurSelectedArea() {
-    currentElement.classList.add("blur-active")
+    elementManager = new ElementManager();
+    hoverManager = new HoverManager();
+    hoverManager.register((currentElement, previousElement) => {
+        elementManager.onNewHover(currentElement, previousElement)
+    });
+    hoverManager.start();
 }
 
 function inactiveBlurowser() {
-    currentElement.classList.remove("element-selector");
-    currentElement.removeEventListener("click", blurSelectedArea);
-    window.onmouseover = originalOnMouseOver
+    elementManager.stop();
+    hoverManager.stop()
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
